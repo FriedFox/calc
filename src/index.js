@@ -1,12 +1,34 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
+import Calc from './Calc';
+import { Provider } from 'react-redux';
+import { createStore } from 'redux';
 import * as serviceWorker from './serviceWorker';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+const initialState = [
+  'История операций: ',
+];
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: http://bit.ly/CRA-PWA
+function history(state = initialState, action){
+  if (action.type === 'ADD_FORMULA') {
+    return([
+      ...state,
+      action.payload
+    ]);
+  }
+  return state;
+}
+
+const store = createStore(history, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
+
+ReactDOM.render(
+  <Provider store={store}>
+    <Calc />
+  </Provider>
+    , document.getElementById('root')
+);
+
+
+
 serviceWorker.unregister();
