@@ -1,3 +1,21 @@
+Для разработки данного приложения использовался готовый модуль от facebook "create-react-app"
+в нем уже настроено необходимое окружение
+создаем проект:
+
+$npm install -g create-react-app
+$create-react-app calc
+
+заменяем содержимое папок src и public на файлы в одноименных папках из репозитория,
+переходим в папку с проектом, устанавливаем необходимые модули и запускаем локальный сервер:
+
+$cd calc
+$npm install mathjs
+$npm install redux --save
+$npm install react-redux --save
+$npm start
+
+__________________________________________________________________________________________________________________
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
